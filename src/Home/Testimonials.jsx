@@ -84,49 +84,29 @@ export default function Testimonials() {
         {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          {getVisible().map((item, i) => {
-            const isCenter = i === Math.floor(cardsToShow / 2);
-
-            return (
-              <div
-                key={i}
-                className={`p-6 md:p-8 rounded-xl shadow-xl transition duration-500 flex flex-col justify-between h-[260px] ${
-                  isCenter
-                    ? "bg-gradient-to-r from-[#D4AF37] to-[#b8962e] text-[#2C1A12] scale-105"
-                    : "bg-[#F5EBDD] text-[#4B2E2B] opacity-80"
-                }`}
-              >
-                {/* QUOTE CIRCLE */}
-                <div className="flex justify-center mb-4">
-                  <div
-                    className={`w-10 h-10 flex items-center justify-center rounded-full text-xl font-bold shadow-md ${
-                      isCenter
-                        ? "bg-[#2C1A12] text-[#D4AF37]"
-                        : "bg-[#D4AF37] text-[#2C1A12]"
-                    }`}
-                  >
-                    "
-                  </div>
+          {getVisible().map((item, i) => (
+            <div
+              key={i}
+              className="bg-[#F5EBDD] text-[#4B2E2B] p-6 md:p-8 rounded-xl shadow-xl flex flex-col justify-between h-[260px] transition duration-300 hover:scale-105"
+            >
+              {/* QUOTE */}
+              <div className="flex justify-center mb-4">
+                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#4B2E2B] text-[#F5EBDD] text-xl font-bold shadow-md">
+                  "
                 </div>
-
-                {/* TEXT */}
-                <p className="text-sm md:text-base leading-relaxed flex-1">
-                  {item.text}
-                </p>
-
-                {/* NAME */}
-                <p
-                  className={`text-sm font-semibold mt-4 pt-2 border-t text-right ${
-                    isCenter
-                      ? "border-[#2C1A12]/30"
-                      : "border-[#d6bfa3]/40"
-                  }`}
-                >
-                  — {item.name}
-                </p>
               </div>
-            );
-          })}
+
+              {/* TEXT */}
+              <p className="text-sm md:text-base leading-relaxed flex-1 text-center">
+                {item.text}
+              </p>
+
+              {/* NAME */}
+              <p className="text-sm font-semibold mt-4 pt-2 border-t border-[#d6bfa3]/40 text-center">
+                — {item.name}
+              </p>
+            </div>
+          ))}
 
         </div>
 
