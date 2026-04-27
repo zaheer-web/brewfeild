@@ -1,8 +1,15 @@
 import React from 'react'
+import MenuHero from '../Menu/MenuHero'
+import MenuSection from '../Menu/MenuSection'
+import ItalianDelights from '../Menu/ItalianDelights'
 
 function Menu() {
   return (
-    <div>Menu</div>
+    <>
+    <MenuHero/>
+    <MenuSection/>
+    <ItalianDelights/>
+    </>
   )
 }
 

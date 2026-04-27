@@ -1,8 +1,18 @@
 import React from 'react'
+import ContactHero from '../Contact/ContactHero'
+import ContactSection from '../Contact/ContactSection'
+import MapSection from '../Contact/MapSection'
+import LocationsSection from '../Contact/LocationsSection'
 
 function Contact() {
   return (
-    <div>Contact</div>
+    <>
+    <ContactHero/>
+    <ContactSection/>
+    <MapSection/>
+    <LocationsSection/>
+    
+    </>
   )
 }
 
