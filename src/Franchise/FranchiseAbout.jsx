@@ -13,7 +13,7 @@ export default function FranchiseAbout() {
         <div>
 
           <h2 className="text-[38px] font-serif text-white mb-[15px]">
-            About <span className="text-[#C8A96A]">Cafe Brewfield</span>
+            About <span className="text-[#C8A96A]">Cafe Brewfields</span>
           </h2>
 
           <div className="w-[60px] h-[2px] bg-[#C8A96A] mb-[25px]"></div>
