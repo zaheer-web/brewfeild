@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 const menuData = {
   coffees: [
@@ -22,9 +21,9 @@ const menuData = {
       img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
     },
     {
-      name: "Mocha",
-      desc: "Chocolate infused espresso with cream.",
-      price: "₹180",
+      name: "Americano",
+      desc: "Espresso shot with hot water for a smooth brew.",
+      price: "₹140",
       img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735",
     },
   ],
@@ -32,127 +31,102 @@ const menuData = {
   teas: [
     {
       name: "Green Tea",
-      desc: "Refreshing and detoxifying tea.",
-      price: "₹100",
-      img: "https://images.unsplash.com/photo-1518976024611-4888eec6f0f7",
+      desc: "Refreshing and antioxidant-rich blend.",
+      price: "₹110",
+      img: "https://images.unsplash.com/photo-1523906630133-f6934a1ab2b9",
     },
     {
-      name: "Masala Tea",
-      desc: "Indian spiced milk tea.",
+      name: "Masala Chai",
+      desc: "Traditional Indian spiced tea.",
       price: "₹90",
-      img: "https://images.unsplash.com/photo-1589367920969-ab8e050bbb04",
+      img: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7",
     },
   ],
 
-  italian: [
+  delights: [
     {
       name: "Croissant",
-      desc: "Buttery flaky pastry.",
-      price: "₹150",
+      desc: "Flaky buttery French delight.",
+      price: "₹180",
       img: "https://images.unsplash.com/photo-1509440159596-0249088772ff",
     },
     {
-      name: "Pasta",
-      desc: "Creamy Italian pasta.",
+      name: "Tiramisu",
+      desc: "Classic Italian dessert with coffee flavor.",
       price: "₹250",
-      img: "https://images.unsplash.com/photo-1525755662778-989d0524087e",
-    },
-  ],
-
-  cold: [
-    {
-      name: "Cold Coffee",
-      desc: "Chilled creamy coffee.",
-      price: "₹160",
-      img: "https://images.unsplash.com/photo-1498804103079-a6351b050096",
-    },
-    {
-      name: "Iced Latte",
-      desc: "Cold milk + espresso blend.",
-      price: "₹180",
-      img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5",
+      img: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9",
     },
   ],
 };
 
-const tabs = [
-  { key: "coffees", label: "Coffees" },
-  { key: "teas", label: "Teas" },
-  { key: "italian", label: "Italian Delights" },
-  { key: "cold", label: "Cold Beverages" },
-];
-
 export default function MenuSection() {
-  const [activeTab, setActiveTab] = useState("coffees");
+  const [active, setActive] = useState("coffees");
 
   return (
-    <section className="bg-[#e8d8c3] py-24">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="bg-black py-[100px] px-[60px]">
 
-        {/* TABS */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {tabs.map((tab) => (
+      <div className="max-w-[1100px] mx-auto">
+
+        {/* 🔥 TABS */}
+        <div className="flex justify-center mb-[50px] flex-wrap gap-2">
+          {Object.keys(menuData).map((cat) => (
             <button
-              key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
-              className={`px-5 py-2 rounded-full text-sm transition ${
-                activeTab === tab.key
-                  ? "bg-[#2d1b12] text-[#f8efe5]"
-                  : "bg-[#f5efe7] text-[#5a3b2e] border border-[#d6c3b3]"
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`px-[22px] py-[10px] text-[12px] tracking-[2px] uppercase transition
+              ${
+                active === cat
+                  ? "bg-[#C8A96A] text-black"
+                  : "border border-[#C8A96A]/30 text-white/70 hover:border-[#C8A96A]"
               }`}
             >
-              {tab.label}
+              {cat}
             </button>
           ))}
         </div>
 
-        {/* SINGLE CARD */}
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-[#f5efe7] rounded-2xl shadow-lg p-6 md:p-8 border border-[#d6c3b3]"
-        >
+        {/* TITLE */}
+        <h2 className="text-center text-[32px] font-serif text-white mb-[10px]">
+          {active.toUpperCase()}
+        </h2>
 
-          {menuData[activeTab].map((item, index) => (
-            <div key={index} className="flex gap-4 py-4 items-start">
+        <p className="text-center text-white/60 mb-[40px]">
+          Our finest selection crafted to perfection.
+        </p>
 
+        {/* 🔥 MENU LIST */}
+        <div className="space-y-[30px]">
+
+          {menuData[active].map((item, i) => (
+            <div
+              key={i}
+              className="flex gap-[20px] items-start border-b border-[#C8A96A]/10 pb-[20px]"
+            >
               {/* IMAGE */}
               <img
-                src={`${item.img}?q=80&w=200`}
-                alt=""
-                className="w-20 h-20 object-cover rounded-lg"
+                src={item.img}
+                className="w-[80px] h-[80px] object-cover rounded"
               />
 
-              {/* CONTENT */}
+              {/* TEXT */}
               <div className="flex-1">
-
-                {/* NAME + PRICE */}
                 <div className="flex justify-between items-center">
-                  <h3 className="text-[#2d1b12] font-semibold text-base">
+                  <h3 className="text-white text-[18px]">
                     {item.name}
                   </h3>
-
-                  <span className="text-[#5a3b2e] font-bold text-base">
+                  <span className="text-[#C8A96A] text-[14px]">
                     {item.price}
                   </span>
                 </div>
 
-                {/* DESC */}
-                <p className="text-[#5c4638] text-sm mt-1">
+                <p className="text-white/60 text-[13px] mt-[4px]">
                   {item.desc}
                 </p>
-
-                {/* LINE */}
-                {index !== menuData[activeTab].length - 1 && (
-                  <div className="border-b border-dashed border-[#d6c3b3] mt-3"></div>
-                )}
-
               </div>
             </div>
           ))}
 
-        </motion.div>
+        </div>
 
       </div>
     </section>

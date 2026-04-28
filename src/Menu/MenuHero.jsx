@@ -1,56 +1,55 @@
-import { motion } from "framer-motion";
-import coffeeVideo from "../img/ha-1.mp4";
+import bg from "../img/bg.avif"; // 👈 apni image yahan daal
 
 export default function MenuHero() {
   return (
-    <section className="relative w-full h-[65vh] flex items-center overflow-hidden">
+    <section className="relative h-[55vh] flex items-center overflow-hidden">
 
-      {/* VIDEO BACKGROUND */}
-      <video
-        src={coffeeVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+      {/* 🔥 BACKGROUND IMAGE */}
+      <div className="absolute inset-0">
+        <img
+          src={bg}
+          alt="menu"
+          className="w-full h-full object-cover brightness-[0.5] scale-105"
+        />
+      </div>
 
-      {/* PREMIUM OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0f0b08]/90 via-[#1a120b]/70 to-[#0f0b08]/90"></div>
+      {/* DARK OVERLAY */}
+      <div className="absolute inset-0 bg-black/70"></div>
+
+      {/* GOLD GLOW */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(200,169,106,0.15),transparent_60%)]"></div>
 
       {/* CONTENT */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-[60px]">
 
-        <motion.div
-          initial={{ opacity: 0, x: -60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-xl"
-        >
+        <h1 className="text-[42px] md:text-[48px] font-serif text-white mb-[10px]">
+          Our <span className="text-[#C8A96A]">Menu</span>
+        </h1>
 
-          {/* TITLE */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#f8efe5]">
-            Our{" "}
-            <span className="bg-gradient-to-r from-[#D4AF37] to-[#f1d77a] bg-clip-text text-transparent">
-              Menu
-            </span>
-          </h1>
+        <p className="text-white/70 text-[16px] max-w-[520px]">
+          Handcrafted Italian Coffees, Teas, and Delights
+        </p>
 
-          {/* SUBTEXT */}
-          <p className="mt-5 text-[#e6c27a] text-lg md:text-xl italic">
-            Handcrafted Italian Coffees, Teas, and Delights
-          </p>
-
-          {/* DECORATIVE LINE (UPGRADED) */}
-          <div className="w-20 h-[2px] bg-gradient-to-r from-[#D4AF37] to-transparent mt-6"></div>
-
-        </motion.div>
+        {/* OPTIONAL GOLD DIVIDER */}
+        <div className="w-[60px] h-[2px] bg-[#C8A96A] mt-[18px]"></div>
 
       </div>
 
-      {/* BOTTOM FADE */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0f0b08] to-transparent"></div>
+      {/* 📱 RESPONSIVE */}
+      <style jsx>{`
+        @media (max-width: 900px) {
+          section {
+            height: 45vh;
+          }
+        }
+
+        @media (max-width: 600px) {
+          section {
+            height: auto;
+            padding: 80px 20px;
+          }
+        }
+      `}</style>
 
     </section>
   );

@@ -1,111 +1,123 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
-
 export default function FranchiseForm() {
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    city: "",
-    budget: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form);
-    alert("Form Submitted 🚀");
-  };
-
   return (
-    <section className="bg-[#e8d8c3] py-24">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="relative bg-black py-[110px] px-[60px] overflow-hidden">
 
-        {/* HEADING */}
-        <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-center mb-14"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold text-[#2d1b12]">
-            Apply for{" "}
-            <span className="text-[#5a3b2e]">Franchise</span>
-          </h2>
+      {/* ✨ GOLD GLOW */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(200,169,106,0.06),transparent_70%)] pointer-events-none" />
 
-          <div className="w-24 h-[2px] bg-[#5a3b2e] mx-auto mt-4"></div>
+      <div className="relative z-10 max-w-[1000px] mx-auto">
 
-          <p className="text-[#5c4638] mt-4">
-            Start your journey with Cafe Brewfield 🚀
-          </p>
-        </motion.div>
+        {/* TITLE */}
+        <h2 className="text-center text-[34px] font-serif text-white mb-[60px]">
+          Apply for <span className="text-[#C8A96A]">Franchise</span>
+        </h2>
 
         {/* FORM */}
-        <motion.form
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] p-8 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-6"
-        >
+        <form className="grid md:grid-cols-2 gap-[25px]">
 
-          {/* INPUT STYLE COMMON */}
-          {[
-            { name: "name", type: "text", placeholder: "Full Name" },
-            { name: "phone", type: "tel", placeholder: "Phone Number" },
-            { name: "email", type: "email", placeholder: "Email Address" },
-            { name: "city", type: "text", placeholder: "City" },
-          ].map((field, i) => (
+          {/* FULL NAME */}
+          <div>
+            <label className="text-white/60 text-[12px] mb-2 block">
+              Full Name
+            </label>
             <input
-              key={i}
-              type={field.type}
-              name={field.name}
-              placeholder={field.placeholder}
-              value={form[field.name]}
-              onChange={handleChange}
-              required={field.name !== "city"}
-              className="border border-[#d6c3b3] bg-[#faf7f2] rounded-xl px-4 py-3 text-[#2d1b12] placeholder-[#7a6252] focus:outline-none focus:ring-2 focus:ring-[#5a3b2e] transition"
+              type="text"
+              placeholder="Enter your name"
+              className="w-full bg-transparent border border-[#C8A96A]/30 px-[14px] py-[12px] text-white outline-none focus:border-[#C8A96A] transition"
             />
-          ))}
+          </div>
 
-          {/* SELECT */}
-          <select
-            name="budget"
-            value={form.budget}
-            onChange={handleChange}
-            className="border border-[#d6c3b3] bg-[#faf7f2] rounded-xl px-4 py-3 text-[#2d1b12] focus:outline-none focus:ring-2 focus:ring-[#5a3b2e]"
-          >
-            <option value="">Investment Budget</option>
-            <option value="10-15L">10–15 Lakhs</option>
-            <option value="15-25L">15–25 Lakhs</option>
-            <option value="25L+">25+ Lakhs</option>
-          </select>
+          {/* PHONE */}
+          <div>
+            <label className="text-white/60 text-[12px] mb-2 block">
+              Phone Number
+            </label>
+            <input
+              type="text"
+              placeholder="Enter phone number"
+              className="w-full bg-transparent border border-[#C8A96A]/30 px-[14px] py-[12px] text-white outline-none focus:border-[#C8A96A] transition"
+            />
+          </div>
 
-          {/* TEXTAREA */}
-          <textarea
-            name="message"
-            placeholder="Tell us about your plan..."
-            rows="4"
-            value={form.message}
-            onChange={handleChange}
-            className="border border-[#d6c3b3] bg-[#faf7f2] rounded-xl px-4 py-3 text-[#2d1b12] placeholder-[#7a6252] md:col-span-2 focus:outline-none focus:ring-2 focus:ring-[#5a3b2e]"
-          ></textarea>
+          {/* EMAIL */}
+          <div>
+            <label className="text-white/60 text-[12px] mb-2 block">
+              Email
+            </label>
+            <input
+              type="email"
+              placeholder="Enter email"
+              className="w-full bg-transparent border border-[#C8A96A]/30 px-[14px] py-[12px] text-white outline-none focus:border-[#C8A96A] transition"
+            />
+          </div>
+
+          {/* CITY */}
+          <div>
+            <label className="text-white/60 text-[12px] mb-2 block">
+              City
+            </label>
+            <select className="w-full bg-black border border-[#C8A96A]/30 px-[14px] py-[12px] text-white outline-none focus:border-[#C8A96A]">
+              <option>Select city</option>
+              <option>Delhi</option>
+              <option>Noida</option>
+              <option>Gurgaon</option>
+            </select>
+          </div>
+
+          {/* INVESTMENT */}
+          <div>
+            <label className="text-white/60 text-[12px] mb-2 block">
+              Investment Budget
+            </label>
+            <select className="w-full bg-black border border-[#C8A96A]/30 px-[14px] py-[12px] text-white outline-none focus:border-[#C8A96A]">
+              <option>Select budget</option>
+              <option>₹10–15 Lakhs</option>
+              <option>₹15–25 Lakhs</option>
+              <option>₹25–50 Lakhs</option>
+            </select>
+          </div>
+
+          {/* MESSAGE (FULL WIDTH) */}
+          <div className="md:col-span-2">
+            <label className="text-white/60 text-[12px] mb-2 block">
+              Message
+            </label>
+            <textarea
+              rows="4"
+              placeholder="Write your message..."
+              className="w-full bg-transparent border border-[#C8A96A]/30 px-[14px] py-[12px] text-white outline-none focus:border-[#C8A96A] transition"
+            ></textarea>
+          </div>
 
           {/* BUTTON */}
-          <div className="md:col-span-2 flex justify-center mt-4">
+          <div className="md:col-span-2 text-center mt-[10px]">
             <button
               type="submit"
-              className="bg-[#2d1b12] text-[#f8efe5] px-10 py-3 rounded-full font-semibold shadow-lg hover:scale-105 hover:bg-[#5a3b2e] transition duration-300"
+              className="bg-[#C8A96A] text-black px-[40px] py-[14px] text-[13px] tracking-[2px] uppercase transition hover:scale-[1.05] hover:shadow-[0_0_20px_rgba(200,169,106,0.5)]"
             >
               Submit Application
             </button>
           </div>
 
-        </motion.form>
+        </form>
 
       </div>
+
+      {/* 📱 RESPONSIVE */}
+      <style jsx>{`
+        @media (max-width: 900px) {
+          section {
+            padding: 80px 30px;
+          }
+        }
+
+        @media (max-width: 600px) {
+          section {
+            padding: 60px 20px;
+          }
+        }
+      `}</style>
+
     </section>
   );
 }

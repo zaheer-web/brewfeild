@@ -1,68 +1,64 @@
-import { motion } from "framer-motion";
-import coffeeVideo from "../img/ha-1.mp4";
+import bg from "../img/bg.avif"; // 👈 apni image
 
 export default function ContactHero() {
   return (
-    <section className="relative w-full h-[65vh] flex items-center overflow-hidden">
+    <section className="relative h-[65vh] flex items-center overflow-hidden">
 
-      {/* VIDEO BACKGROUND */}
-      <video
-        src={coffeeVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+      {/* 🔥 BACKGROUND */}
+      <div className="absolute inset-0">
+        <img
+          src={bg}
+          alt="contact"
+          className="w-full h-full object-cover brightness-[0.5] scale-105"
+        />
+      </div>
 
-      {/* PREMIUM OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0f0b08]/90 via-[#1a120b]/70 to-[#0f0b08]/90"></div>
+      {/* DARK OVERLAY */}
+      <div className="absolute inset-0 bg-black/70"></div>
+
+      {/* GOLD GLOW */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(200,169,106,0.15),transparent_60%)]"></div>
 
       {/* CONTENT */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-[60px]">
 
-        <motion.div
-          initial={{ opacity: 0, x: -60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-xl"
+        <h1 className="text-[42px] md:text-[50px] font-serif text-white mb-[15px]">
+          Contact <span className="text-[#C8A96A]">Us</span>
+        </h1>
+
+        <p className="text-white/70 max-w-[500px] mb-[20px]">
+          We're here to help you
+        </p>
+
+        <p className="text-white/60 max-w-[520px] mb-[30px] text-[14px]">
+          Have questions or want to become a franchise partner? Reach out to us!
+        </p>
+
+        {/* CTA */}
+        <a
+          href="/franchise"
+          className="inline-block bg-[#C8A96A] text-black px-[32px] py-[14px] text-[13px] tracking-[2px] uppercase transition hover:scale-[1.05] hover:shadow-[0_0_20px_rgba(200,169,106,0.5)]"
         >
-
-          {/* TITLE */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#f8efe5]">
-            Contact{" "}
-            <span className="bg-gradient-to-r from-[#D4AF37] to-[#f1d77a] bg-clip-text text-transparent">
-              Us
-            </span>
-          </h1>
-
-          {/* SUBTEXT */}
-          <p className="mt-4 text-[#e6c27a] text-lg italic">
-            We're here to help you
-          </p>
-
-          {/* DESCRIPTION */}
-          <p className="mt-5 text-[#d9c7b8] text-base md:text-lg leading-relaxed">
-            Have questions or want to become a franchise partner?  
-            Reach out to us and let's build something amazing together.
-          </p>
-
-          {/* BUTTON */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-8 bg-gradient-to-r from-[#D4AF37] to-[#b8962e] text-[#1a120b] px-7 py-3 rounded-full font-semibold shadow-xl transition duration-300"
-          >
-            Apply for Franchise
-          </motion.button>
-
-        </motion.div>
+          Apply for Franchise
+        </a>
 
       </div>
 
-      {/* BOTTOM FADE */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0f0b08] to-transparent"></div>
+      {/* 📱 RESPONSIVE */}
+      <style jsx>{`
+        @media (max-width: 900px) {
+          section {
+            height: 55vh;
+          }
+        }
+
+        @media (max-width: 600px) {
+          section {
+            height: auto;
+            padding: 80px 20px;
+          }
+        }
+      `}</style>
 
     </section>
   );

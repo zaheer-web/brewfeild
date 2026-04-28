@@ -1,15 +1,13 @@
-import { motion } from "framer-motion";
-
-const items = [
+const delights = [
   {
     name: "Tiramisu",
-    desc: "Classic Italian dessert made with layers of mascarpone and espresso.",
+    desc: "Classic Italian dessert made with layers of mascarpone and espresso soaked ladyfingers.",
     price: "₹210",
-    img: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+    img: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9",
   },
   {
     name: "Croissant",
-    desc: "Buttery, flaky croissant perfect with coffee.",
+    desc: "Buttery, flaky croissant, perfect with your coffee.",
     price: "₹130",
     img: "https://images.unsplash.com/photo-1509440159596-0249088772ff",
   },
@@ -17,7 +15,7 @@ const items = [
     name: "Cannoli",
     desc: "Crispy pastry filled with sweet ricotta cream.",
     price: "₹140",
-    img: "https://images.unsplash.com/photo-1627308595171-d1b5d67129c4",
+    img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c",
   },
   {
     name: "Belgian Waffles",
@@ -27,7 +25,7 @@ const items = [
   },
   {
     name: "Cheesecake",
-    desc: "Rich and creamy cheesecake with biscuit base.",
+    desc: "Rich and creamy cheesecake with a hint of vanilla.",
     price: "₹230",
     img: "https://images.unsplash.com/photo-1551024601-bec78aea704b",
   },
@@ -35,73 +33,59 @@ const items = [
     name: "Panini",
     desc: "Grilled Italian sandwich with fresh ingredients.",
     price: "₹240",
-    img: "https://images.unsplash.com/photo-1604908176997-4314b1b8f7e6",
+    img: "https://images.unsplash.com/photo-1550547660-d9450f859349",
   },
 ];
 
 export default function ItalianDelights() {
   return (
-    <section className="bg-[#e8d8c3] py-24">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="bg-black py-[100px] px-[60px]">
 
-        {/* HEADING */}
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#2d1b12]">
-            Italian{" "}
-            <span className="text-[#5a3b2e]">Delights</span>
-          </h2>
+      <div className="max-w-[1100px] mx-auto">
 
-          <p className="text-[#5c4638] mt-3">
-            Authentic Italian treats to complement your coffee
-          </p>
+        {/* TITLE */}
+        <h2 className="text-center text-[34px] font-serif text-white mb-[10px]">
+          Italian <span className="text-[#C8A96A]">Delights</span>
+        </h2>
 
-          <div className="w-20 h-[2px] bg-[#5a3b2e] mx-auto mt-4"></div>
-        </div>
+        <p className="text-center text-white/60 mb-[50px]">
+          Authentic Italian treats to complement your coffee.
+        </p>
 
         {/* GRID */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-[30px]">
 
-          {items.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -6 }}
-              className="group flex gap-4 items-start bg-[#f5efe7] p-4 rounded-2xl shadow-md hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition duration-300 border border-[#e0d2c3]"
+          {delights.map((item, i) => (
+            <div
+              key={i}
+              className="flex gap-[18px] border-b border-[#C8A96A]/10 pb-[20px]"
             >
 
               {/* IMAGE */}
-              <div className="overflow-hidden rounded-lg">
-                <img
-                  src={`${item.img}?q=80&w=300`}
-                  alt=""
-                  className="w-28 h-28 object-cover transition duration-500 group-hover:scale-110"
-                />
-              </div>
+              <img
+                src={item.img}
+                className="w-[90px] h-[90px] object-cover rounded"
+              />
 
               {/* CONTENT */}
               <div className="flex-1">
 
                 <div className="flex justify-between items-center">
-                  <h3 className="font-semibold text-[#2d1b12]">
+                  <h3 className="text-white text-[17px]">
                     {item.name}
                   </h3>
 
-                  <span className="text-[#5a3b2e] font-bold">
+                  <span className="text-[#C8A96A] text-[14px]">
                     {item.price}
                   </span>
                 </div>
 
-                <p className="text-sm text-[#5c4638] mt-2 leading-relaxed">
+                <p className="text-white/60 text-[13px] mt-[4px] leading-[1.6]">
                   {item.desc}
                 </p>
 
-                {/* LINE */}
-                <div className="border-b border-dashed border-[#d6c3b3] mt-3"></div>
-
               </div>
-            </motion.div>
+            </div>
           ))}
 
         </div>

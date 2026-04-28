@@ -1,7 +1,7 @@
 import React from 'react'
-import FranchiseCTA from '../Franchise/FranchiseCTA'
-import WhyChooseStats from '../Franchise/WhyChooseStats'
-import AboutCafe from '../Franchise/AboutCafe'
+import FranchiseHero from '../Franchise/FranchiseHero'
+import WhyFranchise from '../Franchise/WhyFranchise'
+import FranchiseAbout from '../Franchise/FranchiseAbout'
 import ExperienceBanner from '../Franchise/ExperienceBanner'
 import FranchiseSupport from '../Franchise/FranchiseSupport'
 import FranchiseForm from '../Franchise/FranchiseForm'
@@ -9,9 +9,9 @@ import FranchiseForm from '../Franchise/FranchiseForm'
 function Franchise() {
   return (
     <>
-    <FranchiseCTA/>
-    <WhyChooseStats/>
-    <AboutCafe/>
+    <FranchiseHero/>
+    <WhyFranchise/>
+    <FranchiseAbout/>
     <ExperienceBanner/>
     <FranchiseSupport/>
     <FranchiseForm/>

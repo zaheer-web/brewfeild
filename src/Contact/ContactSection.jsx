@@ -1,130 +1,120 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
+import img from "../img/bg.avif"; // 👈 apni image
 
 export default function ContactSection() {
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Message Sent 🚀");
-  };
-
   return (
-    <section className="bg-[#e8d8c3] py-24">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
+    <section className="relative bg-black py-[110px] px-[60px] overflow-hidden">
 
-        {/* LEFT FORM */}
-        <motion.form
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, x: -60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          className="bg-[#f5efe7] p-8 rounded-2xl shadow-lg space-y-6 border border-[#d6c3b3]"
-        >
-          <h2 className="text-3xl font-bold text-[#2d1b12]">
-            Get In{" "}
-            <span className="text-[#5a3b2e]">Touch</span>
+      {/* ✨ GOLD GLOW */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(200,169,106,0.06),transparent_70%)] pointer-events-none" />
+
+      <div className="relative z-10 max-w-[1200px] mx-auto grid md:grid-cols-2 gap-[60px] items-start">
+
+        {/* LEFT - FORM */}
+        <div>
+
+          <h2 className="text-[32px] font-serif text-white mb-[30px]">
+            Get In <span className="text-[#C8A96A]">Touch</span>
           </h2>
 
-          {/* INPUT ROW */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <form className="grid gap-[20px]">
 
+            {/* NAME + PHONE */}
+            <div className="grid grid-cols-2 gap-[15px]">
+              <input
+                type="text"
+                placeholder="Full Name"
+                className="bg-transparent border border-[#C8A96A]/30 px-[14px] py-[12px] text-white outline-none focus:border-[#C8A96A]"
+              />
+              <input
+                type="text"
+                placeholder="Phone Number"
+                className="bg-transparent border border-[#C8A96A]/30 px-[14px] py-[12px] text-white outline-none focus:border-[#C8A96A]"
+              />
+            </div>
+
+            {/* EMAIL */}
             <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              onChange={handleChange}
-              className="bg-white border border-[#d6c3b3] px-4 py-3 rounded-lg text-[#2d1b12] placeholder-[#7a6252] focus:outline-none focus:ring-2 focus:ring-[#5a3b2e]"
-              required
+              type="email"
+              placeholder="Email"
+              className="bg-transparent border border-[#C8A96A]/30 px-[14px] py-[12px] text-white outline-none focus:border-[#C8A96A]"
             />
 
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone Number"
-              onChange={handleChange}
-              className="bg-white border border-[#d6c3b3] px-4 py-3 rounded-lg text-[#2d1b12] placeholder-[#7a6252] focus:outline-none focus:ring-2 focus:ring-[#5a3b2e]"
-              required
-            />
+            {/* MESSAGE */}
+            <textarea
+              rows="5"
+              placeholder="Message"
+              className="bg-transparent border border-[#C8A96A]/30 px-[14px] py-[12px] text-white outline-none focus:border-[#C8A96A]"
+            ></textarea>
 
-          </div>
+            {/* BUTTON */}
+            <button className="mt-[10px] bg-[#C8A96A] text-black px-[32px] py-[12px] text-[13px] tracking-[2px] uppercase hover:scale-[1.05] transition hover:shadow-[0_0_20px_rgba(200,169,106,0.5)]">
+              Send Message
+            </button>
 
-          {/* EMAIL */}
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            onChange={handleChange}
-            className="w-full bg-white border border-[#d6c3b3] px-4 py-3 rounded-lg text-[#2d1b12] placeholder-[#7a6252] focus:outline-none focus:ring-2 focus:ring-[#5a3b2e]"
-            required
-          />
+          </form>
 
-          {/* MESSAGE */}
-          <textarea
-            name="message"
-            rows="5"
-            placeholder="Your Message..."
-            onChange={handleChange}
-            className="w-full bg-white border border-[#d6c3b3] px-4 py-3 rounded-lg text-[#2d1b12] placeholder-[#7a6252] focus:outline-none focus:ring-2 focus:ring-[#5a3b2e]"
-          ></textarea>
+        </div>
 
-          {/* BUTTON */}
-          <button className="w-full bg-[#2d1b12] text-[#f8efe5] py-3 rounded-full font-semibold hover:bg-[#5a3b2e] transition duration-300 hover:scale-105">
-            Send Message
-          </button>
-
-        </motion.form>
-
-        {/* RIGHT SIDE */}
-        <motion.div
-          initial={{ opacity: 0, x: 60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          className="space-y-6"
-        >
+        {/* RIGHT - INFO */}
+        <div>
 
           {/* IMAGE */}
-          <img
-            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1600"
-            alt="contact"
-            className="rounded-2xl shadow-lg w-full h-[260px] object-cover"
-          />
+          <div className="overflow-hidden border border-[#C8A96A]/20 mb-[25px]">
+            <img
+              src={img}
+              alt="contact"
+              className="w-full h-full object-cover transition duration-700 hover:scale-[1.05] brightness-[0.85]"
+            />
+          </div>
 
-          {/* INFO BOX */}
-          <div className="bg-[#f5efe7] p-6 rounded-2xl shadow-md space-y-4 border border-[#d6c3b3]">
+          {/* TEXT */}
+          <h3 className="text-white text-[18px] mb-[10px]">
+            Visit Our Cafes in <span className="text-[#C8A96A]">Delhi NCR</span>
+          </h3>
 
-            <h3 className="text-xl font-semibold text-[#2d1b12]">
-              Visit Our Cafes in Delhi NCR
-            </h3>
+          <p className="text-white/60 text-[13px] mb-[20px]">
+            Brewfield Cafe
+          </p>
 
-            <div className="flex items-center gap-3 text-[#5c4638]">
-              <FaMapMarkerAlt className="text-[#5a3b2e]" />
-              <span>Ghaziabad & Delhi</span>
+          {/* CONTACT INFO */}
+          <div className="space-y-[10px] text-white/70 text-[14px]">
+
+            <div className="flex gap-[10px]">
+              <span className="text-[#C8A96A]">📍</span>
+              Ghaziabad, Delhi
             </div>
 
-            <div className="flex items-center gap-3 text-[#5c4638]">
-              <FaEnvelope className="text-[#5a3b2e]" />
-              <span>info@cafebrewfield.com</span>
+            <div className="flex gap-[10px]">
+              <span className="text-[#C8A96A]">✉</span>
+              info@cafebrewfield.com
             </div>
 
-            <div className="flex items-center gap-3 text-[#5c4638]">
-              <FaPhone className="text-[#5a3b2e]" />
-              <span>+91 9876543210</span>
+            <div className="flex gap-[10px]">
+              <span className="text-[#C8A96A]">📞</span>
+              +91 9876543210
             </div>
 
           </div>
 
-        </motion.div>
+        </div>
 
       </div>
+
+      {/* 📱 RESPONSIVE */}
+      <style jsx>{`
+        @media (max-width: 900px) {
+          section {
+            padding: 80px 30px;
+          }
+        }
+
+        @media (max-width: 600px) {
+          section {
+            padding: 60px 20px;
+          }
+        }
+      `}</style>
+
     </section>
   );
 }

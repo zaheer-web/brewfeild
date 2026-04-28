@@ -1,81 +1,145 @@
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2C1A12] text-[#F5EBDD] pt-16 pb-8">
+    <footer className="relative bg-[#070403] py-[100px] px-[60px] pb-[40px] overflow-hidden">
 
-      {/* TOP GRID */}
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+      {/* 🔥 BACKGROUND GLOW */}
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_20%_20%,rgba(200,169,106,0.05),transparent_60%),radial-gradient(circle_at_80%_80%,rgba(200,169,106,0.04),transparent_60%)]" />
 
-        {/* BRAND */}
-        <div>
-          <h2 className="text-2xl font-bold mb-4">
-            <span className="text-[#D4AF37]">Cafe</span> Brewfield
-          </h2>
+      <div className="relative z-[2] max-w-[1200px] mx-auto">
 
-          <p className="text-[#d6bfa3] text-sm leading-relaxed">
-            A premium Italian café experience bringing elegance,
-            taste, and unforgettable ambiance across Delhi NCR.
-          </p>
-        </div>
+        {/* TOP GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-[60px] mb-[60px]">
 
-        {/* QUICK LINKS */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4 text-[#D4AF37]">
-            Quick Links
-          </h3>
+          {/* BRAND */}
+          <div>
+            <Link to="/" className="block text-[28px] font-semibold text-[#C8A96A] tracking-[3px] uppercase mb-[8px]">
+              Brewfield
+            </Link>
 
-          <ul className="space-y-2 text-sm">
-            <li><Link to="/" className="hover:text-[#D4AF37]">Home</Link></li>
-            <li><Link to="/about" className="hover:text-[#D4AF37]">About</Link></li>
-            <li><Link to="/franchise" className="hover:text-[#D4AF37]">Franchise</Link></li>
-            <li><Link to="/menu" className="hover:text-[#D4AF37]">Menu</Link></li>
-            <li><Link to="/contact" className="hover:text-[#D4AF37]">Contact</Link></li>
-          </ul>
-        </div>
-
-        {/* CONTACT */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4 text-[#D4AF37]">
-            Contact
-          </h3>
-
-          <ul className="space-y-2 text-sm text-[#d6bfa3]">
-            <li>Ghaziabad | Delhi NCR</li>
-            <li>info@cafebrewfield.com</li>
-            <li>+91 9876543210</li>
-          </ul>
-        </div>
-
-        {/* SOCIAL */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4 text-[#D4AF37]">
-            Follow Us
-          </h3>
-
-          <div className="flex gap-4">
-
-            <div className="w-10 h-10 flex items-center justify-center rounded-full border border-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#2C1A12] transition cursor-pointer">
-              <FaFacebookF />
+            <div className="text-[11px] tracking-[3px] uppercase text-white/35 mb-[20px]">
+              Italian Coffee & Tea House
             </div>
 
-            <div className="w-10 h-10 flex items-center justify-center rounded-full border border-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#2C1A12] transition cursor-pointer">
-              <FaInstagram />
-            </div>
-
-            <div className="w-10 h-10 flex items-center justify-center rounded-full border border-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#2C1A12] transition cursor-pointer">
-              <FaTwitter />
-            </div>
-
+            <p className="italic text-[15px] text-white/60 leading-[1.7]">
+              "Crafting Elegance<br />in Every Cup, Since Always."
+            </p>
           </div>
+
+          {/* NAVIGATION */}
+          <div>
+            <div className="text-[10px] tracking-[4px] uppercase text-[#C8A96A] mb-[24px]">
+              Navigate
+            </div>
+
+            <ul className="flex flex-col gap-[12px]">
+              {[
+                { name: "Home", path: "/" },
+                { name: "About", path: "/about" },
+                { name: "Franchise", path: "/franchise" },
+                { name: "Menu", path: "/menu" },
+                { name: "Contact", path: "/contact" },
+              ].map((item, i) => (
+                <li key={i}>
+                  <Link
+                    to={item.path}
+                    className="relative text-white/55 text-[13px] transition group"
+                  >
+                    {item.name}
+                    <span className="absolute left-0 bottom-[-2px] w-0 h-[1px] bg-[#C8A96A] transition-all duration-300 group-hover:w-full"></span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* FRANCHISE */}
+          <div>
+            <div className="text-[10px] tracking-[4px] uppercase text-[#C8A96A] mb-[24px]">
+              Franchise
+            </div>
+
+            <ul className="flex flex-col gap-[12px]">
+              {[
+                "Why Brewfield",
+                "Investment Details",
+                "Territory Map",
+                "Apply Now",
+                "Partner Stories",
+              ].map((item, i) => (
+                <li key={i}>
+                  <Link
+                    to="/franchise"
+                    className="relative text-white/55 text-[13px] transition group"
+                  >
+                    {item}
+                    <span className="absolute left-0 bottom-[-2px] w-0 h-[1px] bg-[#C8A96A] transition-all duration-300 group-hover:w-full"></span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* CONTACT */}
+          <div>
+            <div className="text-[10px] tracking-[4px] uppercase text-[#C8A96A] mb-[24px]">
+              Contact
+            </div>
+
+            <div className="flex flex-col gap-[14px] text-[13px] text-white/55">
+
+              <div>
+                <strong className="block text-[10px] tracking-[2px] text-white/30 mb-[4px]">
+                  Email
+                </strong>
+                hello@brewfieldcafe.com
+              </div>
+
+              <div>
+                <strong className="block text-[10px] tracking-[2px] text-white/30 mb-[4px]">
+                  Franchise
+                </strong>
+                franchise@brewfieldcafe.com
+              </div>
+
+              <div>
+                <strong className="block text-[10px] tracking-[2px] text-white/30 mb-[4px]">
+                  Delhi HQ
+                </strong>
+                Connaught Place, New Delhi
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
-      </div>
+        {/* DIVIDER */}
+        <div className="h-[1px] mb-[36px] bg-gradient-to-r from-transparent via-[rgba(200,169,106,0.4)] to-transparent" />
 
-      {/* DIVIDER */}
-      <div className="border-t border-[#3b2418] mt-10 pt-6 text-center text-sm text-[#d6bfa3]">
-        © {new Date().getFullYear()} Cafe Brewfield. All rights reserved.
+        {/* BOTTOM */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-[20px]">
+
+          <div className="text-[12px] text-white/30">
+            © 2025 Brewfield Cafe. All rights reserved. Crafted with intention.
+          </div>
+
+          {/* SOCIAL */}
+          <div className="flex gap-[16px]">
+            {["in", "ig", "fb", "yt"].map((item, i) => (
+              <a
+                key={i}
+                href="#"
+                className="w-[38px] h-[38px] flex items-center justify-center text-[13px] text-white/50 border border-[rgba(200,169,106,0.25)] transition hover:text-[#C8A96A] hover:border-[#C8A96A] hover:-translate-y-[3px] hover:shadow-[0_0_12px_rgba(200,169,106,0.4)]"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+
+        </div>
+
       </div>
 
     </footer>
